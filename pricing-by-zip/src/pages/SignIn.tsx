@@ -6,13 +6,15 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  Paper,
   Stack,
   Typography,
+  Fab,
 } from '@mui/material'
 import PasswordIcon from '@mui/icons-material/Password'
 
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 function SignIn() {
@@ -49,12 +51,17 @@ function SignIn() {
   return (
     <>
       <Typography variant='h3'>Welcome to Pricing by Zip Code</Typography>
-      <form onSubmit={onSubmit}>
-        <Box
-          sx={{
-            height: 300,
-            width: '50vw',
-          }}>
+      <Paper
+        elevation={6}
+        variant='outlined'
+        square
+        sx={{
+          width: '60vw',
+
+          marginTop: '32px',
+          p: 8,
+        }}>
+        <form onSubmit={onSubmit}>
           <Stack>
             <FormControl variant='standard'>
               <InputLabel htmlFor='input-with-icon-adornment'>Email</InputLabel>
@@ -97,8 +104,14 @@ function SignIn() {
               Sign In
             </Button>
           </Stack>
-        </Box>
-      </form>
+        </form>
+        <Link to='/sign-up'>
+          <Fab variant='extended'>
+            <AccountCircle sx={{ mr: 1 }} />
+            Sign Up Instead
+          </Fab>
+        </Link>
+      </Paper>
     </>
   )
 }
