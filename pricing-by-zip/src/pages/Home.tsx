@@ -1,25 +1,23 @@
 import { useState } from 'react'
 
 import {
-  Autocomplete,
-  Box,
   Container,
-  FormControl,
-  Input,
-  InputLabel,
-  Button,
   MenuItem,
   Select,
   TextField,
   Typography,
+  FormGroup,
+  FormControl,
+  InputLabel,
+  NativeSelect,
 } from '@mui/material'
+
+import ProductOption from '../components/ProductOption'
 import { toast } from 'react-toastify'
+import productPricing from '../productPricing'
+import productInfo from '../productInfo'
 
 function Home() {
-  const locationOption = [
-    { city: 'Tampa', postalCode: '33602' },
-    { city: 'Plant City', postalCode: '33566' },
-  ]
   const [formData, setFormData] = useState({
     postalCode: '',
     productCategory: '',
@@ -27,103 +25,95 @@ function Home() {
   })
   const onSubmit = (e: any) => {
     e.preventDefault()
-    toast.info('completed')
+    toast.success('completed')
     console.log(formData)
   }
-  const onChange = (e: any) => {
+  const handleChange = (e: any) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }))
+    console.log(e.target.id)
   }
 
   const { postalCode, productCategory, productSize } = formData
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            m: 'auto',
-            paddingTop: '32px',
-          }}>
-          <FormControl>
-            <Autocomplete
-              sx={{
-                width: '16em',
-              }}
-              id='postalCode'
-              freeSolo
-              options={locationOption.map((option) => option.postalCode)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  value={postalCode}
-                  label='Search Postal Code...'
-                  onChange={onChange}
-                />
-              )}></Autocomplete>
-          </FormControl>
-          <FormControl variant='filled' sx={{ width: 256 }}>
-            <InputLabel>Product Type</InputLabel>
-            <Select
-              id='productCategory'
-              value={productCategory}
-              onChange={onChange}>
-              <MenuItem value='Rolloff'>Rolloff</MenuItem>
-              <MenuItem value='Bin'>Front Load Bin</MenuItem>
-              <MenuItem value='Portalet'>Port-a-John</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl
-            sx={{
-              width: '16em',
-            }}
-            variant='outlined'>
-            <InputLabel id='productSize'>Product Size</InputLabel>
-            <Select
-              labelId='productSize'
-              id='demo-simple-select-filled'
-              value={productSize}
-              onChange={onChange}>
-              <MenuItem value=''>
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <Button
-            sx={{
-              width: '16em',
-              height: '4em',
-            }}
-            variant='outlined'
-            type='submit'>
-            Search
-          </Button>
-        </Box>
-      </form>
-
+      <Container>
+        <Typography variant='h2'>Let's Get Started...</Typography>
+      </Container>
       <Container
         sx={{
-          marginTop: '4em',
+          marginTop: '64px',
+          border: '2px solid green',
           minHeight: '60vh',
-          backgroundColor: '#8BC6E',
-          backgroundImage: 'linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)',
+          borderRadius: '20px',
+          p: 5,
         }}>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}>
-          <Typography variant='h3'>33566</Typography>
-          <Typography variant='h3'>20 cu yard</Typography>
-        </Box>
-        <Box></Box>
+        <form>
+          <FormGroup
+            row
+            sx={{
+              justifyContent: 'space-between',
+            }}>
+            <Typography
+              variant='h4'
+              sx={{
+                alignSelf: 'center',
+                paddingRight: 12,
+              }}>
+              Enter a Zip Code
+            </Typography>
+
+            <TextField
+              required
+              id='postalCode'
+              label='Postal Code'
+              variant='standard'
+              onChange={handleChange}
+              value={postalCode}
+              sx={{
+                width: 480,
+              }}
+              inputProps={{ style: { fontSize: 40 } }}
+            />
+          </FormGroup>
+          <FormGroup
+            row
+            sx={{
+              justifyContent: 'space-between',
+              marginTop: '32px',
+            }}>
+            <Typography
+              variant='h4'
+              sx={{
+                alignSelf: 'center',
+                paddingRight: 12,
+              }}>
+              Select a Product
+            </Typography>
+            <FormControl
+              sx={{
+                width: 480,
+              }}>
+              <InputLabel variant='standard'>Product</InputLabel>
+              <NativeSelect
+                defaultValue={productCategory}
+                onChange={handleChange}
+                inputProps={{
+                  id: 'productCategory',
+                  style: { fontSize: '1.5em' },
+                }}>
+                <option value={'Rolloff'}>Rolloff</option>
+                <option value={'Bin'}>Front Load Bin</option>
+                <option value={'Portalet'}>Portalet</option>
+              </NativeSelect>
+            </FormControl>
+          </FormGroup>
+          <FormGroup>
+            <ProductOption />
+          </FormGroup>
+        </form>
       </Container>
     </>
   )

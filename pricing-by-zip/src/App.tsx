@@ -7,10 +7,12 @@ import Preferences from './pages/Preferences'
 import Navbar from './components/Navbar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Header from './components/Header'
 
 function App() {
   return (
     <main>
+      <Header />
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
