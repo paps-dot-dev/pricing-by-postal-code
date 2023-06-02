@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
-    <>
+    <main>
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
         <Navbar />
       </Router>
       <ToastContainer />
-    </>
+    </main>
   )
 }
 
