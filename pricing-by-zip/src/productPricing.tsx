@@ -1,4 +1,4 @@
-const productPricing = [
+const productPricing: Array<any> = [
   {
     id: 1,
     postalCode: 33566,
@@ -15,6 +15,7 @@ const productPricing = [
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 459,
         availablity: true,
+        category: 'Rolloff',
       },
       {
         sku: 'RO20',
@@ -22,6 +23,7 @@ const productPricing = [
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 559,
         availablity: true,
+        category: 'Rolloff',
       },
       {
         sku: 'RO30',
@@ -29,6 +31,7 @@ const productPricing = [
         debris: ['Construction', 'Household', 'Mix'],
         discountedPrice: 659,
         availablity: false,
+        category: 'Rolloff',
       },
     ],
   },
@@ -48,6 +51,7 @@ const productPricing = [
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 459,
         availablity: true,
+        category: 'Rolloff',
       },
       {
         sku: 'RO30',
@@ -55,6 +59,15 @@ const productPricing = [
         debris: ['Construction', 'Household', 'Mix'],
         discountedPrice: 549,
         availablity: true,
+        category: 'Rolloff',
+      },
+      {
+        sku: 'BIN8',
+        price: 299,
+        debris: ['Office', 'Food', 'Mix'],
+        discountedPrice: 199,
+        availablity: true,
+        category: 'Bin',
       },
     ],
   },

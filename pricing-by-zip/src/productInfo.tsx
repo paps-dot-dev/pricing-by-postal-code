@@ -1,4 +1,4 @@
-const productInfo = [
+const productInfo: Array<any> = [
   {
     id: 1,
     sku: 'RO10',

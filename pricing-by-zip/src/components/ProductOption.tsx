@@ -1,13 +1,14 @@
 import { Box, Paper, Button, Typography } from '@mui/material'
 import { ReactComponent as Dumpster } from '../assets/dumpster.svg'
-function ProductOption() {
+function ProductOption(props) {
   return (
     <>
       <Paper
         elevation={3}
         sx={{
-          maxWidth: 480,
           p: 2,
+          mx: 2,
+          my: 5,
         }}>
         <Box
           sx={{
@@ -16,7 +17,13 @@ function ProductOption() {
             justifyContent: 'space-between',
             alignItems: 'baseline',
           }}>
-          <Typography variant='h4'>10 cu yard</Typography>
+          <Typography
+            sx={{
+              m: 2,
+            }}
+            variant='h4'>
+            {props.name}
+          </Typography>
           <Typography variant='h5'>Rolloff</Typography>
         </Box>
         <Box
@@ -32,7 +39,13 @@ function ProductOption() {
             alignItems: 'center',
           }}>
           <Dumpster height='150' width='100%' />
-          <Typography>10L x 8W x 3.5H</Typography>
+          <Typography>
+            {props.length}L x {props.width}W x {props.height}H
+          </Typography>
+          <Box>
+            <Typography>Regular Rate: {props.price}</Typography>
+            <Typography>Contractor's Rate: {props.discountedPrice}</Typography>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -40,7 +53,7 @@ function ProductOption() {
             justifyContent: 'right',
             py: 2,
           }}>
-          <Button variant='contained' size='large'>
+          <Button variant='contained' size='medium'>
             Select This Dumpster
           </Button>
         </Box>

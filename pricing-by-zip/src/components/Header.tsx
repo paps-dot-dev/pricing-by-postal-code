@@ -1,4 +1,3 @@
-import React from 'react'
 import adrLogo from '../assets/ADR B.png'
 import { Typography, Box } from '@mui/material'
 
