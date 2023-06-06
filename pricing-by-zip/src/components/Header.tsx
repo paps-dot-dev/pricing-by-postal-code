@@ -16,6 +16,7 @@ function Header() {
           variant='h4'
           sx={{
             opacity: 0.2,
+            mr: 2,
           }}>
           Pricing by Zip Code
         </Typography>

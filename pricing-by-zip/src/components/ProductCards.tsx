@@ -9,8 +9,8 @@ function ProductCards({ products, category, info }) {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          flexFlow: 'row wrap',
+          justifyContent: 'space-evenly',
         }}>
         {products.products.map((product) => {
           const matchInfo = info.find((sku) => sku.sku === product.sku)
@@ -24,13 +24,15 @@ function ProductCards({ products, category, info }) {
               <ProductOption
                 price={product.price}
                 discountedPrice={product.discountedPrice}
-                availability={product.availability}
+                available={product.available}
                 debris={product.debris}
                 sku={product.sku}
                 name={productName}
                 length={length}
                 width={width}
                 height={height}
+                isDisabled={product.available ? '1' : '0.5'}
+                url={`/quote/${product.city}/${product.category}/${product.sku}`}
               />
             )
           } else {

@@ -1,14 +1,17 @@
 import { Box, Paper, Button, Typography } from '@mui/material'
 import { ReactComponent as Dumpster } from '../assets/dumpster.svg'
+import { useNavigate, Link } from 'react-router-dom'
 function ProductOption(props) {
+  const navigate = useNavigate()
   return (
     <>
       <Paper
         elevation={3}
         sx={{
-          p: 2,
           mx: 2,
           my: 5,
+          p: 2,
+          opacity: `${props.isDisabled}`,
         }}>
         <Box
           sx={{
@@ -16,32 +19,36 @@ function ProductOption(props) {
             flexFlow: 'row-wrap',
             justifyContent: 'space-between',
             alignItems: 'baseline',
+            mt: 2,
           }}>
+          <Typography variant='h4'>{props.name}</Typography>
           <Typography
             sx={{
-              m: 2,
+              p: 3,
             }}
-            variant='h4'>
-            {props.name}
+            variant='subtitle1'>
+            {props.available ? 'Available' : 'Not Available'}
           </Typography>
-          <Typography variant='h5'>Rolloff</Typography>
         </Box>
         <Box
           sx={{
             border: '2px solid black',
-            maxWidth: '80%',
+
             m: 'auto',
             borderRadius: '20px',
-            my: 3,
+
             display: 'flex',
             flexFlow: 'column',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           <Dumpster height='150' width='100%' />
-          <Typography>
+
+          <Typography variant='caption'>Dimensions</Typography>
+          <Typography variant='caption'>
             {props.length}L x {props.width}W x {props.height}H
           </Typography>
+
           <Box>
             <Typography>Regular Rate: {props.price}</Typography>
             <Typography>Contractor's Rate: {props.discountedPrice}</Typography>
@@ -53,7 +60,10 @@ function ProductOption(props) {
             justifyContent: 'right',
             py: 2,
           }}>
-          <Button variant='contained' size='medium'>
+          <Button
+            variant='contained'
+            size='medium'
+            onClick={() => navigate('/quote/{props.id}')}>
             Select This Dumpster
           </Button>
         </Box>

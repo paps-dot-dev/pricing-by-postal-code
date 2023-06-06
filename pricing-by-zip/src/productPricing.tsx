@@ -14,7 +14,7 @@ const productPricing: Array<any> = [
         price: 499,
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 459,
-        availablity: true,
+        available: true,
         category: 'Rolloff',
       },
       {
@@ -22,7 +22,7 @@ const productPricing: Array<any> = [
         price: 599,
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 559,
-        availablity: true,
+        available: true,
         category: 'Rolloff',
       },
       {
@@ -30,7 +30,7 @@ const productPricing: Array<any> = [
         price: 699,
         debris: ['Construction', 'Household', 'Mix'],
         discountedPrice: 659,
-        availablity: false,
+        available: false,
         category: 'Rolloff',
       },
     ],
@@ -50,7 +50,7 @@ const productPricing: Array<any> = [
         price: 499,
         debris: ['Construction', 'Household', 'Mix', 'Concrete'],
         discountedPrice: 459,
-        availablity: true,
+        available: true,
         category: 'Rolloff',
       },
       {
@@ -58,7 +58,7 @@ const productPricing: Array<any> = [
         price: 599,
         debris: ['Construction', 'Household', 'Mix'],
         discountedPrice: 549,
-        availablity: true,
+        available: true,
         category: 'Rolloff',
       },
       {
@@ -66,7 +66,7 @@ const productPricing: Array<any> = [
         price: 299,
         debris: ['Office', 'Food', 'Mix'],
         discountedPrice: 199,
-        availablity: true,
+        available: true,
         category: 'Bin',
       },
     ],
