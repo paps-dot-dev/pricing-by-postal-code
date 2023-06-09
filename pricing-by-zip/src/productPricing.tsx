@@ -6,7 +6,7 @@ const productPricing: Array<any> = [
     territory: 'Tampa',
     state: 'Florida',
     stateAbbreviation: 'FL',
-    needsPermit: false,
+    needsPermit: true,
     isFranchise: false,
     products: [
       {
@@ -16,6 +16,8 @@ const productPricing: Array<any> = [
         discountedPrice: 459,
         available: true,
         category: 'Rolloff',
+        includedWeight: 2000,
+        maxRentalPeriod: 7,
       },
       {
         sku: 'RO20',
@@ -24,6 +26,8 @@ const productPricing: Array<any> = [
         discountedPrice: 559,
         available: true,
         category: 'Rolloff',
+        includedWeight: 2000,
+        maxRentalPeriod: 14,
       },
       {
         sku: 'RO30',
@@ -32,6 +36,8 @@ const productPricing: Array<any> = [
         discountedPrice: 659,
         available: false,
         category: 'Rolloff',
+        includedWeight: 3000,
+        maxRentalPeriod: 14,
       },
     ],
   },
@@ -43,7 +49,10 @@ const productPricing: Array<any> = [
     state: 'Florida',
     stateAbbreviation: 'FL',
     needsPermit: true,
+    permitFee: 120,
+    permitNotes: 'Permit only valid for 3 days. Prescheduled pickup required',
     isFranchise: true,
+    franchisePercentage: 0.1,
     products: [
       {
         sku: 'RO20',
@@ -52,6 +61,8 @@ const productPricing: Array<any> = [
         discountedPrice: 459,
         available: true,
         category: 'Rolloff',
+        includedWeight: 2000,
+        maxRentalPeriod: 14,
       },
       {
         sku: 'RO30',
@@ -60,6 +71,8 @@ const productPricing: Array<any> = [
         discountedPrice: 549,
         available: true,
         category: 'Rolloff',
+        includedWeight: 2000,
+        maxRentalPeriod: 14,
       },
       {
         sku: 'BIN8',
@@ -68,6 +81,8 @@ const productPricing: Array<any> = [
         discountedPrice: 199,
         available: true,
         category: 'Bin',
+        includedWeight: '',
+        maxRentalPeriod: '',
       },
     ],
   },

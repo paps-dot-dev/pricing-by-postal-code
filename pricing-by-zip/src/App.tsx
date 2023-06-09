@@ -8,7 +8,6 @@ import Navbar from './components/Navbar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Header from './components/Header'
-import Quote from './pages/Quote'
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/preferences' element={<Preferences />} />
-          <Route path='/quote/:id' element={<Quote />} />
         </Routes>
         <Navbar />
       </Router>

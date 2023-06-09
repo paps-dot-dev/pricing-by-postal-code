@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 import {
   Container,
@@ -18,6 +18,7 @@ import { toast } from 'react-toastify'
 import productPricing from '../productPricing'
 import productInfo from '../productInfo'
 import ProductCards from '../components/ProductCards'
+import Quote from '../components/Quote'
 
 function Home() {
   const initialSearchArray: (string | number)[] = []
@@ -29,6 +30,8 @@ function Home() {
     searchProductCategory: '',
     productSize: '',
   })
+
+  const [quoteData, setQuoteData] = useState({})
 
   interface formData {
     [searchPostalCode: string]: number
@@ -61,7 +64,16 @@ function Home() {
       searchProductCategory: '',
       productSize: '',
     })
+    setQuoteData({})
+    setIsSearch(false)
     toast.info('Form Data Cleared')
+  }
+
+  const handleProductSelection = (data) => {
+    setQuoteData(data)
+    setIsSearch(false)
+
+    return quoteData
   }
 
   const { searchPostalCode, searchProductCategory } = formData
@@ -182,12 +194,14 @@ function Home() {
                 products={searchProduct}
                 category={searchProductCategory}
                 info={productInfo}
+                handleSelect={handleProductSelection}
               />
             </>
           ) : (
             <div>no results</div>
           )}
         </form>
+        <Quote data={quoteData} />
       </Container>
     </>
   )

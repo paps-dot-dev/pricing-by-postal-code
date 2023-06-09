@@ -1,9 +1,21 @@
 import { Box } from '@mui/material'
 import ProductOption from './ProductOption'
-import { toast } from 'react-toastify'
 
-function ProductCards({ products, category, info }) {
-  console.log(products)
+function ProductCards({ products, category, info, handleSelect }) {
+  const handleClick = (data) => {
+    const selectedProductData = {
+      name: data.name,
+      price: data.price,
+      maxRentalPeriod: data.maxRentalPeriod,
+      includedWeight: data.includedWeight,
+      isFranchise: products.isFranchise,
+      franchisePercentage: products.franchisePercentage,
+      needsPermit: products.needsPermit,
+      permitNotes: products.permitNotes,
+      permitFee: products.permitFee,
+    }
+    handleSelect(selectedProductData)
+  }
   return (
     <>
       <Box
@@ -26,6 +38,8 @@ function ProductCards({ products, category, info }) {
                 discountedPrice={product.discountedPrice}
                 available={product.available}
                 debris={product.debris}
+                includedWeight={product.includedWeight}
+                maxRentalPeriod={product.maxRentalPeriod}
                 sku={product.sku}
                 name={productName}
                 length={length}
@@ -33,6 +47,7 @@ function ProductCards({ products, category, info }) {
                 height={height}
                 isDisabled={product.available ? '1' : '0.5'}
                 url={`/quote/${product.city}/${product.category}/${product.sku}`}
+                handleClick={handleClick}
               />
             )
           } else {
