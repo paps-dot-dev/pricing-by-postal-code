@@ -12,9 +12,15 @@ import {
 import { ReactComponent as Dumpster } from '../assets/dumpster.svg'
 
 function Quote({ data, quoteState }) {
+  //sets debris state for debris button selectors
   const [debris, setDebris] = useState('Select A Debris Type')
+  //manages state of weight included to help calculate additional rate
   const [weight, setWeight] = useState(data.includedWeight)
+
+  //manages state of additional fees associated with a dumpster that comes with more weight than the default
   const [customRate, setCustomRate] = useState(0)
+
+  //franchise fee calculator. takes in percentage and multiplies it by price
   const franchiseRate = Math.round(data.price * data.franchisePercentage)
   const grandTotal = Math.round(
     data.price + franchiseRate + data.permitFee + customRate
