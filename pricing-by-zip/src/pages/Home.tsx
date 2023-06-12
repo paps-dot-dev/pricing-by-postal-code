@@ -24,6 +24,7 @@ function Home() {
   const initialSearchArray: (string | number)[] = []
   const [searchProduct, setSearchProduct] = useState(initialSearchArray)
   const [isSearch, setIsSearch] = useState(false)
+  const [quote, setQuote] = useState(false)
 
   const [formData, setFormData] = useState({
     searchPostalCode: '',
@@ -46,9 +47,11 @@ function Home() {
     if (filteredProducts) {
       setSearchProduct(filteredProducts)
       setIsSearch(true)
+      setQuote(false)
     } else {
       toast.error('No Results Found')
       setIsSearch(false)
+      setQuote(false)
     }
   }
   const handleChange = (e: any) => {
@@ -66,12 +69,17 @@ function Home() {
     })
     setQuoteData({})
     setIsSearch(false)
+    setQuote(false)
     toast.info('Form Data Cleared')
   }
 
   const handleProductSelection = (data) => {
     setQuoteData(data)
     setIsSearch(false)
+    setQuote(true)
+    data.isFranchise ? toast.warn('This area is franchised') : null
+
+    data.needsPermit ? toast.warn('This area requires a permit.') : null
 
     return quoteData
   }
@@ -197,11 +205,10 @@ function Home() {
                 handleSelect={handleProductSelection}
               />
             </>
-          ) : (
-            <div>no results</div>
-          )}
+          ) : null}
         </form>
-        <Quote data={quoteData} />
+
+        {quote ? <Quote quoteState={quote} data={quoteData} /> : <div></div>}
       </Container>
     </>
   )

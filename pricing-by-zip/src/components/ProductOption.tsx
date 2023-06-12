@@ -8,6 +8,7 @@ function ProductOption(props) {
       price: props.discountedPrice,
       includedWeight: props.includedWeight,
       maxRentalPeriod: props.maxRentalPeriod,
+      debris: props.debris,
     }
 
     props.handleClick(productData)
@@ -22,6 +23,7 @@ function ProductOption(props) {
           p: 2,
           opacity: `${props.isDisabled}`,
           borderRadius: '20px',
+          width: 450,
         }}>
         <Box
           sx={{
@@ -90,9 +92,11 @@ function ProductOption(props) {
             py: 2,
             mt: 2,
           }}>
-          <Button variant='contained' size='medium' onClick={handleClick}>
-            Select This Dumpster
-          </Button>
+          {props.isDisabled === '1' ? (
+            <Button variant='contained' size='medium' onClick={handleClick}>
+              Select This Dumpster
+            </Button>
+          ) : null}
         </Box>
       </Paper>
     </>

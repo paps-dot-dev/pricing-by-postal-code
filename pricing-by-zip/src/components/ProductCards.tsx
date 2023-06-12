@@ -13,6 +13,12 @@ function ProductCards({ products, category, info, handleSelect }) {
       needsPermit: products.needsPermit,
       permitNotes: products.permitNotes,
       permitFee: products.permitFee,
+      city: products.city,
+      territory: products.territory,
+      postalCode: products.postalCode,
+      stateAbbreviation: products.stateAbbreviation,
+      debris: data.debris,
+      overage: products.overagePercentage,
     }
     handleSelect(selectedProductData)
   }

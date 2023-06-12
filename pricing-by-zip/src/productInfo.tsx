@@ -35,6 +35,15 @@ const productInfo: Array<any> = [
     width: 8,
     height: 4,
   },
+  {
+    id: 5,
+    sku: 'RO20C',
+    productName: '20 Cubic Yard Concrete Rolloff',
+    productCategory: 'Rolloff',
+    length: 22,
+    width: 8,
+    height: 3.5,
+  },
 ]
 
 export default productInfo
